@@ -1,21 +1,34 @@
 
 $(document).ready(function(){
-    var findResort = 'http://api.worldweatheronline.com/premium/v1/search.ashx?key=cb4a3d52f4b54aa1993205712161011&q=21797&format=json&num_of_results=3&wct=Ski';
+	$('input#clicky').click(function(event){
+		event.preventDefault();
+		newZipcode = document.getElementById('zip').value;
+		getRequest(newZipcode);		
+		// $("p#resortName").text(newZipcode);
+	});
+});
+
+
+function getRequest(zippyDoDah){
+    var startUrl = 'https://api.worldweatheronline.com/premium/v1/search.ashx?';
+    var keykey = 'key=cb4a3d52f4b54aa1993205712161011&q=';
+    var endingUrl = '&format=json&num_of_results=3&wct=Ski';
+	var findResort = startUrl+keykey+zippyDoDah+endingUrl;
+
 	$.getJSON(findResort,function(datas){
 		var lat = datas.search_api.result[0].latitude;
 		var long = datas.search_api.result[0].longitude;
 		var baseURL = 'https://api.worldweatheronline.com/premium/v1/ski.ashx?key=cb4a3d52f4b54aa1993205712161011&q=';
 		var locale = lat+','+long;
-		var endURL = '&format=json&date=today,tomorrow';
+		var endURL = '&format=json&date=today';
 		var input = baseURL+locale+endURL;
 		$('p#resortName').text(datas.search_api.result[0].areaName[0].value+','+datas.search_api.result[0].region[0].value);
 		$.getJSON(input,function(datum){
 			var isItSnowing = datum.data.weather[0].chanceofsnow;
 			$('span#output').text(isItSnowing);
-		})
+		});
 	});
-});
-
+};
 
 
 var locale = {
@@ -99,4 +112,3 @@ var locale = {
         ]
     }
 };
-var weatherResults = ;
