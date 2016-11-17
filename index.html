@@ -2,33 +2,47 @@
 <html>
 <head>
 	<title>Hit the Slopes</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="discription" content="A simple App to find the closest ski slopes and if there will be freash powder!">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="stylish.css">
 	<!-- <script type="text/javascript" src="jquery-3.1.0.js"></script> -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
+<div id="contain">
 	<header id="head">
 		<div id="upTop">
-			<h2>Tell Me Some Weather</h2><br><h3>Can I Hit The Slopes?</h3><br>
+			<h2>Find Me Some Freash Powder to Carve!</h2><h3>Type a zipcode below</h3><br>
 			<form>
-				<input id="zip" type="text" name="Zipcode" maxlength="5" required="required" placeholder="26505" autofocus>
+			<!-- <label for="Zipcode" id="EAZC">Enter a Zip Code</label><br> -->
+				<input id="zip" type="text" name="Zipcode" maxlength="5" required="required" placeholder="ex. 59036" autofocus>
 				<input type="submit" name="Snow" id="clicky" value="Find Me Snow">
 			</form>
 		</div>
 	</header>
 	<main id="main">
-		<div id="stuffHere">
+		<div id="stuffHere" class="choice">
+			<h4>Closest Mountain</h4>
 			<p id="resortName"></p>
-			<p id="snow">Chance of Snow is <span id="output"></span>%</p>
+			<p class="snow">Chance of Snow Today is <span id="output"></span>%</p>
+			<p class="snow">Chance of Snow Tomorrow is <span id="output2"></span>%</p>
 		</div>
-		<div id="moreStuff">
-			
+		<div id="moreStuff" class="choice">
+			<h4>or Try Here</h4>
+			<p id="otherResort"></p>
+			<p class="snow">Chance of Snow Today is <span id="output3"></span>%</p>
+			<p class="snow">Chance of Snow Tomorrow is <span id="output4"></span>%</p>
 		</div>
 	</main>
-	<footer></footer>
-
-
-
+	<footer>
+		<div id="foots">
+			<p>Tim Chase | 2016 &nbsp;&nbsp;&nbsp;&nbsp; powered by: World Weather Online  &nbsp;| &nbsp; functionality ends: 09 Jan, 2017</p>
+		</div>
+	</footer>
 <script type="text/javascript" src="app.js"></script>
+</div>
 </body>
 </html>
